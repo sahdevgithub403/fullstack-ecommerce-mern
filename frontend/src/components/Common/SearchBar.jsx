@@ -42,7 +42,7 @@ export const SearchBar = () => {
           <button
             type="button"
             onClick={handleToggleSearch}
-            className="absolute right-2 top-1/5 transform-translate-y-1/2 text-gray-600 hover:text-gray-800"
+            className="absolute right-10 top-0 transform-translate-y-1/2 text-gray-600 hover:text-gray-800"
           >
             <IoCloseSharp className="h-6 w-6" />
           </button>
