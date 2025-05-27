@@ -1,12 +1,50 @@
 @import "tailwindcss";
 
-#root{
-  font-family: "Reddit Sans", sans-serif;
+#root {
+  font-family: 'SvetzeExtraBold';
+   src: url('/fonts/svetzeextrabold-x3bgj.otf') format('opentype');
   font-optical-sizing: auto;
   font-style: normal;
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  border-radius: 100%;
+  background: rgb(255, 255, 255);
+  font-size: 20px;
+}
 
-/* .container{
-  margin-left: 20px;
-} */
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+.SliderHome {
+  margin: 30px;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 30px !important;
+  color: black;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: red;
+}
+
+.swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
+  color: rgb(255, 255, 255);
+}
+
+.SliderHome .items:hover img {
+  transform: scale(1.1);
+}

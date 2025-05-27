@@ -14,44 +14,55 @@ export const SearchBar = () => {
     e.preventDefault();
     console.log("Search bar:", searchItem);
     setIsOpen(false);
-  }
+  };
 
   return (
-    <div
-      className={`flex items-center justify-center w-full transition-all duration-300 ${
-        isOpen ? "absolute top-0 left-0 w-full bg-white h-24 z-50" : "w-auto"
-      }`}
-    >
-      {isOpen ? (
-        <form onSubmit={handleSearch} className="relative flex items-center justify-center w-full">
-          <div className="relative w-1/2">
+    <div className="relative">
+      <div
+        className={`fixed left-0 w-full z-50 bg-white overflow-hidden shadow-md transition-all duration-500 ease-in-out ${
+          isOpen ? "top-0 h-27 opacity-100" : "-top-24 h-0 opacity-0"
+        }`}
+      >
+        <form
+          onSubmit={handleSearch}
+          className="flex justify-center items-center h-full px-4"
+        >
+          <div className="relative w-full max-w-lg">
             <input
               type="text"
               placeholder="Search"
               value={searchItem}
               onChange={(e) => setSearchItem(e.target.value)}
-              className="bg-gray-100 px-4 py-2 pl-2 pr-12 rounded-lg focus:outline-none w-full placeholder:text-gray-700"
+              className="w-full bg-gray-100 px-4 py-2 pr-12 rounded-lg focus:outline-none placeholder:text-gray-700"
             />
             <button
               type="submit"
-              className="absolute right-2 top-1/5 transform-translate-y-1/2 text-gray-600 hover:text-gray-800"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-800"
             >
-              <HiMagnifyingGlass className="h-6 w-6" />
+              <HiMagnifyingGlass className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={handleToggleSearch}
+              className="absolute -right-10 top-1/2 -translate-y-1/2 text-gray-600 hover:text-gray-800"
+            >
+              <IoCloseSharp className="h-6 w-6" />
             </button>
           </div>
-          <button
-            type="button"
-            onClick={handleToggleSearch}
-            className="absolute right-10 top-0 transform-translate-y-1/2 text-gray-600 hover:text-gray-800"
-          >
-            <IoCloseSharp className="h-6 w-6" />
-          </button>
         </form>
-      ) : (
-        <button onClick={handleToggleSearch}>
-          <HiMagnifyingGlass className="h-6 w-6" />
-        </button>
-      )}
+      </div>
+
+      <button
+        onClick={handleToggleSearch}
+        className={`text-gray-700 hover:text-black transition-opacity duration-300 ${
+          isOpen
+            ? "opacity-50 cursor-default pointer-events-none"
+            : "opacity-100"
+        }`}
+        aria-label="Toggle Search"
+      >
+        <HiMagnifyingGlass className="h-6 w-6" />
+      </button>
     </div>
   );
 };
