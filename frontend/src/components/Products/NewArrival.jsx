@@ -83,6 +83,12 @@ export const NewArrival = () => {
             disableOnInteraction: false,
           }}
           modules={[Autoplay, Navigation]}
+          breakpoints={{
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
+          }}
           className="SliderHome"
         >
           {newArrival.map((product) => (
@@ -107,114 +113,3 @@ export const NewArrival = () => {
     </div>
   );
 };
-
-// import { useRef, useState } from "react";
-// import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-// import { NavLink } from "react-router-dom";
-
-// export const NewArrival = () => {
-//   const scrollRef = useRef(null);
-//   const [isDragging, setIsDragging] = useState(false);
-//   const [startX, setStartX] = useState(0);
-//   const [scrollLeft, setScrollLeft] = useState(false);
-//   const [canScrollRight, setCanScrollRight] = useState(true);
-// const newArrival = [
-//   {
-//     _id: "1",
-//     name: "Stylish Jacket",
-//     price: 120,
-//     image: [
-//       {
-//         url: "https://picsum.photos/500/500/?random-1",
-//         altText: "Stylish jacket",
-//       },
-//     ],
-//   },
-//   {
-//     _id: "2",
-//     name: "Stylish Jacket",
-//     price: 120,
-//     image: [
-//       {
-//         url: "https://picsum.photos/500/500/?random-1",
-//         altText: "Stylish jacket",
-//       },
-//     ],
-//   },
-//   {
-//     _id: "3",
-//     name: "Stylish Jacket",
-//     price: 120,
-//     image: [
-//       {
-//         url: "https://picsum.photos/500/500/?random-1",
-//         altText: "Stylish jacket",
-//       },
-//     ],
-//   },
-//   {
-//     _id: "4",
-//     name: "Stylish Jacket",
-//     price: 120,
-//     image: [
-//       {
-//         url: "https://picsum.photos/500/500/?random-1",
-//         altText: "Stylish jacket",
-//       },
-//     ],
-//   },
-//   {
-//     _id: "5",
-//     name: "Stylish Jacket",
-//     price: 120,
-//     image: [
-//       {
-//         url: "https://picsum.photos/500/500/?random-1",
-//         altText: "Stylish jacket",
-//       },
-//     ],
-//   },
-// ];
-//   return (
-//     <section className="m-10">
-// <div className="container mx-auto text-center mb-10 relative">
-//   <h2 className="text-3xl font-bold mb-4">Explore New Arrivels</h2>
-//   <p className="text-lg text-gray-600 mb-8">
-//     Discover the latest styles straight off the runway, freshly added to
-//     keep your wardrode on the cutting edge of fashion.
-//   </p>
-
-//   <div className="absolute right-0 bottom-[-30px] flex space-x-2">
-//     <button className="p-2 rounded border bg-white text-black">
-//       <FiChevronLeft className="text-2xl" />
-//     </button>
-//     <button className="p-2 rounded border bg-white text-black">
-//       <FiChevronRight className="text-2xl" />
-//     </button>
-//   </div>
-// </div>
-
-//       <div ref={scrollRef} className="container mx-auto overflow-x-scroll flex space-x-6 relative">
-//         {newArrival.map((product) => (
-//           <div
-//             key={product._id}
-//             className="min-w-[100%] sm:min-w-[50%] lg:min-w-[30%] relative"
-//           >
-//             <img
-//               src={product.image[0]?.url}
-//               alt={product.image[0]?.altText || product.name}
-//               className="w-full h-[500px] object-cover rounded-lg "
-//             />
-
-//             <div className="absolute bottom-0 left-0 right-0 backdrop-blur-md text-white p-4 rounded-b-lg">
-//               <NavLink to={`/product/${product._id}`} className="block">
-//                 <h4 className="font-medium">{product.name}</h4>
-//                 <p className="mt-1">{product.price}</p>
-//               </NavLink>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// };
